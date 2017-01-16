@@ -1,0 +1,30 @@
+Files:
+
+main.cpp - contains main loop for opencv window and user interface. Instantiates voronoi class
+voronoi.h - class header file for voronoi class
+voronoi.cu - contains function definitions for voronoi class as well as the CUDA kernels
+generate_plots.py - if the user presses 't', the system will profile the cpu and gpu with varying site sizes. The output will be a file called performance.txt. This file reads in performance.txt and generates plots.
+
+Build Instructions:
+
+I used Nsight to build this project so the makefile was auto generated. You should be able to import the project into Nsight by
+importing this directory.
+
+Dependencies:
+
+C++11 - you will need to configure Nsight to build with C++11 enabled. On linux this means you need a gcc version of at least 4.9
+
+OpenCV 2.4.9 or higher
+	- I used 3.0, but any version should work since I only use it to display the image and draw sites
+	- My project used shared libraries. I did not have access to the static libraries to link in 
+
+Run:
+
+To run the program you need to pass in an image.
+
+./Voronoi -i ../images/crab.jpg
+
+-i - option for image path
+-n - option for number of sites, e.g. 3000 will start app with 3000 randomly generated sites
+
+
